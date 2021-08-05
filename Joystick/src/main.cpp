@@ -54,7 +54,9 @@ void loop() { // put your main code here, to run repeatedly:
 
     int magnitude = sqrt(sq(x_coord) + sq(y_coord));  //finds magnitude of joystick vector
     double max_magnitude = 511; // sets max magnitude to the radius of joystick's circular range
-    magnitude = max_magnitude; //accounts for actual joystick specifications (translates square to circle)
+    if (magnitude > max_magnitude){
+      magnitude = max_magnitude; //accounts for actual joystick specifications (translates square to circle)
+    }
     
     double angle = atan2(y_coord, x_coord); //finds the angle of joystick position (from the x axis)
     double degrees = angle * 180 / PI; //convert radians to degrees
